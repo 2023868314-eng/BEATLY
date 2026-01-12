@@ -871,78 +871,106 @@ a{
     font-size: 15px;
 }
 
-/* ==========================================
-   RESPONSIVE LAYOUT (UNTUK PHONE & TABLET)
-   ========================================== */
-@media (max-width: 768px) {
-    
-    /* 1. Susun Header secara menegak atau kecilkan elemen */
+/* ===============================
+   MOBILE & TABLET RESPONSIVE
+   =============================== */
+
+/* TABLET & MOBILE */
+@media (max-width: 900px) {
+
+    /* HEADER */
     .top-header {
         flex-wrap: wrap;
         height: auto;
-        padding: 10px;
         gap: 10px;
+        padding: 15px;
     }
 
-    .search-container {
-        order: 3;       /* Letak search bar di baris bawah */
-        width: 100%;    /* Search bar penuh skrin */
+    .search-container input {
+        width: 100%;
     }
 
-    .header-datetime {
-        display: none;  /* Sembunyikan jam di phone supaya tak semak */
+    .auth-buttons {
+        padding-right: 0;
     }
 
-    /* 2. Tukar Sidebar kepada Bottom Navigation (Macam Spotify) */
-    .layout-container {
-        flex-direction: column; /* Main content di atas, sidebar (nav) boleh diubah */
-    }
-
+    /* SIDEBAR → JADI TOP MENU */
     .sidebar {
+        position: static;
         width: 100%;
         height: auto;
-        position: fixed;
-        bottom: 0;      /* Letak menu di bawah skrin phone */
-        left: 0;
-        z-index: 1000;
-        background: #111;
-        padding: 10px 0;
-        border-top: 1px solid #333;
-    }
-
-    .nav-links {
-        flex-direction: row; /* Susun butang menu melintang */
-        justify-content: space-around;
+        flex-direction: row;
+        gap: 10px;
+        margin-bottom: 20px;
+        overflow-x: auto;
     }
 
     .nav-btn {
-        font-size: 12px;
-        padding: 5px;
+        white-space: nowrap;
+        min-width: 140px;
     }
 
-    .info-links {
-        display: none; /* Sembunyikan About/Contact dalam sidebar mobile */
-    }
-
-    /* 3. Betulkan Grid Lagu */
-    .best-grid, .mv-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 lagu sebaris di phone */
-        gap: 10px;
-        padding: 10px;
-    }
-
+    /* MAIN CONTENT */
     .main-content {
-        padding-bottom: 150px; /* Beri ruang supaya tak kena tutup dengan player/nav */
+        margin-left: 0;
+        width: 100%;
+        padding: 0 15px;
     }
 
-    /* 4. Kecilkan Music Player Footer */
+    .hero-box,
+    .trending-box {
+        padding: 25px;
+    }
+
+    /* TRENDING SONGS → 1 KOLUM */
+    .slide-page {
+        grid-template-columns: 1fr;
+    }
+
+    /* BEST OF 2025 → 2 KOLUM */
+    .best-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* SHORT MV → 1 KOLUM */
+    .mv-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* PLAYER FOOTER */
     .player-footer {
-        bottom: 60px; /* Letak atas sikit dari bottom nav */
-        padding: 5px;
+        flex-wrap: wrap;
+        height: auto;
+        padding: 15px;
+        gap: 15px;
     }
 
-    .player-info img {
-        width: 40px;
-        height: 40px;
+    .volume-control {
+        display: none; /* buang volume dekat mobile */
+    }
+}
+
+/* PHONE KECIL */
+@media (max-width: 480px) {
+
+    .logo-container {
+        padding: 5px 15px;
+    }
+
+    .btn-top {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+
+    .header-datetime {
+        display: none;
+    }
+
+    .song-details .s-title {
+        font-size: 13px;
+    }
+
+    .song-details .s-artist {
+        font-size: 11px;
     }
 }
